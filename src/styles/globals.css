@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .header {
+    @apply w-full sticky top-0 z-10
+  }
+  .hamburger-button {
+    @apply text-3xl focus:outline-none relative w-8 h-8
+  }
+  .create-white-hamburger-icon {
+    @apply bg-white w-8 h-1 rounded absolute top-4 -mt-0.5 transition-all
+    duration-500 before:content-[''] before:bg-white before:w-8 before:h-1
+    before:rounded before:absolute before:-translate-x-4 before:-translate-y-3
+    before:transition-all before:duration-500 after:content-[''] after:bg-white
+    after:w-8 after:h-1 after:rounded after:absolute after:-translate-x-4
+    after:translate-y-3 after:transition-all z-10 after:duration-500
+  }
+  .create-black-hamburger-icon {
+    @apply bg-black w-8 h-1 rounded absolute top-4 -mt-0.5 transition-all
+    duration-500 before:content-[''] before:bg-black before:w-8 before:h-1
+    before:rounded before:absolute before:-translate-x-4 before:-translate-y-3
+    before:transition-all before:duration-500 after:content-[''] after:bg-black
+    after:w-8 after:h-1 after:rounded after:absolute after:-translate-x-4
+    after:translate-y-3 after:transition-all z-10 after:duration-500
+  }
+  .hamburger-options {
+    @apply absolute top-0 end-0 bg-[#101010] max-phone:w-full
+    max-desktop:w-4/5 w-2/5 text-3xl flex-col origin-right animate-open-menu
+    overflow-hidden
+  }
+
+  .links {
+    @apply w-full text-center py-6 hover:text-[#c3323a] text-[#ccc]
+  }
+  .section {
+    text-transform: uppercase;
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+    top: 60%;
+}
+}
+
+@layer utilities {
+  .toggle-btn {
+    @apply [&>div::before]:translate-y-0 [&>div::before]:rotate-45 
+    [&>div::after]:translate-y-0 [&>div::after]:-rotate-45
+    [&>div]:bg-transparent [&>div]:rotate-[360deg]
+  }
+}
